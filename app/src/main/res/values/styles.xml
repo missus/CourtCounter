@@ -1,0 +1,9 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">#AD1457</item>
+        <item name="colorButtonNormal">#C2185B</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#880E4F</item>
+    </style>
+</resources>
