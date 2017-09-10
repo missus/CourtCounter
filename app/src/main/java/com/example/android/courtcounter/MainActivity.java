@@ -11,10 +11,14 @@ public class MainActivity extends AppCompatActivity {
     public static final String SCORE_B = "scoreB";
     public static final String FOUL_A = "foulA";
     public static final String FOUL_B = "foulB";
+    public static final String CORNER_A = "cornerA";
+    public static final String CORNER_B = "cornerB";
     int scoreA = 0;
     int scoreB = 0;
     int foulA = 0;
     int foulB = 0;
+    int cornerA = 0;
+    int cornerB = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
         foulView.setText(String.valueOf(foul));
     }
 
+    public void displayCornerTeamA(int corner) {
+        TextView foulView = (TextView) findViewById(R.id.team_a_corner);
+        foulView.setText(String.valueOf(corner));
+    }
+
     public void addScoreA(View view) {
         scoreA += 1;
         displayScoreForTeamA(scoreA);
@@ -41,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
     public void addFoulA(View view) {
         foulA += 1;
         displayFoulTeamA(foulA);
+    }
+
+    public void addCornerA(View view) {
+        cornerA += 1;
+        displayCornerTeamA(cornerA);
     }
 
     public void displayScoreForTeamB(int score) {
@@ -57,10 +71,19 @@ public class MainActivity extends AppCompatActivity {
         scoreB += 1;
         displayScoreForTeamB(scoreB);
     }
+    public void displayCornerTeamB(int corner) {
+        TextView foulView = (TextView) findViewById(R.id.team_b_corner);
+        foulView.setText(String.valueOf(corner));
+    }
 
     public void addFoulB(View view) {
         foulB += 1;
         displayFoulTeamB(foulB);
+    }
+
+    public void addCornerB(View view) {
+        cornerB += 1;
+        displayCornerTeamB(cornerB);
     }
 
     public void reset(View view) {
@@ -68,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
         scoreB = 0;
         foulA = 0;
         foulB = 0;
+        cornerA = 0;
+        cornerB = 0;
         displayAll();
     }
 
@@ -76,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
         displayScoreForTeamB(scoreB);
         displayFoulTeamA(foulA);
         displayFoulTeamB(foulB);
+        displayCornerTeamA(cornerA);
+        displayCornerTeamB(cornerB);
     }
 
     @Override
@@ -85,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt(SCORE_B, scoreB);
         outState.putInt(FOUL_A, foulA);
         outState.putInt(FOUL_B, foulB);
+        outState.putInt(CORNER_A, cornerA);
+        outState.putInt(CORNER_B, cornerB);
     }
 
     @Override
@@ -94,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
         scoreB = savedInstanceState.getInt(SCORE_B);
         foulA = savedInstanceState.getInt(FOUL_A);
         foulB = savedInstanceState.getInt(FOUL_B);
+        cornerA = savedInstanceState.getInt(CORNER_A);
+        cornerB = savedInstanceState.getInt(CORNER_B);
         displayAll();
     }
 }
